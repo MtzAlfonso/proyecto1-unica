@@ -26,3 +26,37 @@ def sql_insert(entities):
     cursorObj.execute(
         "INSERT INTO users (nickname, password, nombre, apellido, edad, correo, numTarjeta, correoPaypal, passPaypal) VALUES (?,?,?,?,?,?,?,?,?)", entities)
     con.commit()
+
+
+def sql_login(nickname, password):
+    con = sql_connection()
+    cursorObj = con.cursor()
+    cursorObj.execute(
+        "SELECT * FROM users WHERE nickname = ? AND password = ?", (
+            nickname, password, )
+    )
+    user = cursorObj.fetchone()
+    if user:
+        return True, user
+    else:
+        return False, None
+
+
+def sql_select_products():
+    con = sql_connection()
+    cursorObj = con.cursor()
+    cursorObj.execute(
+        "SELECT * FROM products"
+    )
+    products = cursorObj.fetchall()
+    return products
+
+
+def sql_select_product(name):
+    con = sql_connection()
+    cursorObj = con.cursor()
+    cursorObj.execute(
+        "SELECT * FROM products WHERE nombre = ?", (name, )
+    )
+    product = cursorObj.fetchone()
+    return product

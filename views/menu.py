@@ -1,4 +1,5 @@
-from lib.operations import register
+from functions.operations import register, login
+from functions.auxiliar import clear
 
 def start():
     op = 0
@@ -11,12 +12,14 @@ def start():
         try:
             op = int(input("\n> "))
             if op == 1:
+                clear()
                 register()
             elif op == 2:
-                print("Login")
+                clear()
+                login()
             elif op == 3:
-                print("Hasta luego, esperamos que vuelva pronto.")
+                print("\nHasta luego, esperamos que vuelva pronto.")
             else:
-                print("Opción inválida")
+                print("\nOpción inválida")
         except:
-            print("No ingresaste ninguna opción")
+            print("\nOpción inválida")
