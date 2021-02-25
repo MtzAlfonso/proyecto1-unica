@@ -1,8 +1,7 @@
+import functions.validator as val
 from database.dbFunctions import sql_insert, sql_login, sql_select_product
 from getpass import getpass
-import functions.validator as val
 from models.carrito import Carrito
-from models.producto import Producto
 from terminal_text_color import TextColor
 
 tc = TextColor()
