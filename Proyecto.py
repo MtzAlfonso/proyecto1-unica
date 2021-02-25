@@ -26,6 +26,7 @@ def menu(usuario):
                 ingreso(usuario)
         else:
             print("Opción invalida")
+            sys.exit()
     print("Hasta luego")
     sys.exit()
 
@@ -136,15 +137,19 @@ def ingreso(user):
     
 def compra(usuario):
     print("Bienvenido a la tienda en línea, tus datos son: ",usuario)
-    items={"Camiseta":"Gucci,roja,M,$1500","Pantalon":"Gucci,verde,M,$1500",
-           "Tenis":"Gucci,blancos,26.5,$1500"
+    items={"Camiseta":"Gucci,roja,M,$1500","Pantalon":"Gucci,verde,M,$1500","TENIS":"Gucci,blancos,26.5,$1500"
         }
     print("Los items de la tienda son: ", items)
     comprarcosas=input("que desea comprar?")
-    if (comprarcosas==items["Tenis"]):
+    print(items["TENIS"])
+    print(comprarcosas)
+    if (comprarcosas==items["TENIS"]):
         print("Compraste la camiseta")
         sys.exit()
-        
+    else:
+        print("Nada")
+        sys.exit()
+    #ESTA FUNCIÓN ES LA QUE FALTA Y HAY ERROR EN LOS IDS
     
 user={
 
