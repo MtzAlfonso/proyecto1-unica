@@ -1,4 +1,5 @@
 import functions.validator as val
+from functions.auxiliar import archivoDatos, archivoRecibo
 from database.dbFunctions import sql_insert, sql_login, sql_select_product
 from getpass import getpass
 from models.carrito import Carrito
@@ -23,13 +24,7 @@ def register():
                 correo, numTarjeta, correoPaypal, passPaypal)
     try:
         sql_insert(entities)
-        archi1 = open("datos.txt", "w")
-        archi1=open("datos.txt","w") 
-        archi1.write("Bienvenido \t")
-        archi1.write(str(nombre))
-        print("__")
-        archi1.write(str(apellido)) 
-        archi1.close()
+        archivoDatos(entities[2], entities[3])
     except:
         print("Error al guardar los datos")
 
@@ -67,31 +62,14 @@ def comprar(user):
                     print(tc.italic_yellow("\nEl carrito está vacío"))
                 else:
                     carrito.mostrarCarrito()
-                    carrito.total()
+                    print("Total: ${:.2f}".format(carrito.total()))
             elif opc == 3:
                 if len(carrito.productos) == 0:
                     print(tc.italic_yellow("\nEl carrito está vacío"))
                 else:
                     if user[8] == input("\nCorreo de PayPal: "):
                         print(tc.italic_green("\nGracias por tu compra"))
-                        archi2 = open("compra.txt", "w")
-                        archi2=open("compra.txt","w") 
-                        archi2.write("***** ¡Gracias por tu compra! ***** \n")
-                        archi2.write(str(user[3]))
-                        archi2.write("\t")
-                        archi2.write(str(user[4]))
-                        archi2.write("\n")
-                        archi2.write("***** Artículo comprado: \n")
-                        archi2.write("Artículo: \t")
-                        archi2.write(str(prod[2]))
-                        archi2.write("\nTalla: \t")
-                        archi2.write(str(prod[3]))
-                        archi2.write("\nColor: \t")
-                        archi2.write(str(prod[4]))
-                        archi2.write("\nPrecio: \t")
-                        archi2.write(str(prod[5]))
-                        
-                        archi2.close()
+                        archivoRecibo(user, carrito)
                         carrito.vaciarCarrito()
                         break
                     else:

@@ -15,4 +15,4 @@ class Carrito:
         total = 0
         for producto in self.productos:
             total += producto[5]
-        print("Total: ${:.2f}".format(total))
+        return total
