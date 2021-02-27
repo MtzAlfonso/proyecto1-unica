@@ -6,7 +6,7 @@ import re
 
 tc = TextColor()
 
-
+#Función que valida que el nickname del usuario al registrarse sea correcto
 def validaNickname():
     while(True):
         nickname = input("Nickname: ")
@@ -25,7 +25,7 @@ def validaNickname():
             break
     return nickname
 
-
+#Función que valida que la contraseña ingresada por el usuario al registrarse sea correcta
 def validaPassword(msg):
     reg = re.compile(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).\S+$')
     while(True):
@@ -37,7 +37,7 @@ def validaPassword(msg):
             break
     return password
 
-
+#Función que valida que el nickname y la contraseña sean correctas
 def validaLogin(auth, user):
     if auth:
         mp.show(tc.bold_blue("\nBienvenido {} {}".format(user[3], user[4])), user)
