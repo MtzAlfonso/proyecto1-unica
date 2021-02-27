@@ -18,7 +18,7 @@ def archivoDatos(nombre, apellido):
 
 def archivoRecibo(user, carrito):
     file = open("recibo.txt", "w")
-    file.write("*** ¡Gracias por tu compra! ***n")
+    file.write("*** ¡Gracias por tu compra! ***\n")
     file.write(str(user[3]))
     file.write("\t")
     file.write(str(user[4]))
