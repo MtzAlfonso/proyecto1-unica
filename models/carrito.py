@@ -2,6 +2,7 @@ from tabulate import tabulate
 
 
 class Carrito:
+    """Esta clase permite manejar los productos que se van a comprar"""
     productos = []
 
     def mostrarCarrito(self):
