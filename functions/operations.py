@@ -7,7 +7,7 @@ from terminal_text_color import TextColor
 
 tc = TextColor()
 
-
+#Función que registra los datos ingresados por los usuarios y los almacena en la BD
 def register():
     print("\nRegistro de usuarios\n")
     nickname = val.validaNickname()
@@ -28,7 +28,7 @@ def register():
     except:
         print("Error al guardar los datos")
 
-
+#Función que para el login, (verifica en la BD)
 def login():
     print("\nLogin\n")
     nickname = input("Nickname: ")
@@ -36,7 +36,7 @@ def login():
     auth, user = sql_login(nickname, password)
     val.validaLogin(auth, user)
 
-
+#Función para hacer las operaciones de compras
 def comprar(user):
     opc = 0
     carrito = Carrito()
