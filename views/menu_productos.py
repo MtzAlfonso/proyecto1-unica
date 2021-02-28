@@ -3,7 +3,7 @@ from tabulate import tabulate
 from functions.auxiliar import clear
 import functions.operations as fo
 
-
+#Función que muestra la tabla con los artículos disponibles en la BD
 def show(msg, user):
     opc = 0
     while(opc != 2):

@@ -1,6 +1,7 @@
 from functions.operations import register, login
 from functions.auxiliar import clear
 
+#Función que despliega el Menú principal
 def start():
     op = 0
     while(op != 3):
