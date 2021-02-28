@@ -1,5 +1,5 @@
 import functions.validator as val
-from functions.auxiliar import archivoDatos, archivoRecibo
+from functions.auxiliar import archivoDatos, archivoRecibo, clear
 from database.dbFunctions import sql_insert, sql_login, sql_select_product
 from getpass import getpass
 from models.carrito import Carrito
@@ -78,7 +78,6 @@ def comprar(user):
             elif opc == 4:
                 carrito.vaciarCarrito()
                 clear()
-                break
             else:
                 print("\nOpción inválida")
         except:
